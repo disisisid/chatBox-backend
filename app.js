@@ -1,8 +1,8 @@
-const io = require('socket.io')(3000)
+const io = require('socket.io')(process.env.port)
 const express = require('express')
 const app = express()
 const cors = require('cors')
-const port = 4000
+const port = process.env.port
 
 app.use(cors())
 
