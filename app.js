@@ -1,14 +1,14 @@
-const io = require('socket.io')(3000)
+const io = require('socket.io')(process.env.PORT)
 const express = require('express')
 const app = express()
 const cors = require('cors')
-const port = 4000
+const port = process.env.PORT || 4000
 
 app.use(cors())
 
 app.get('/get-port', (req, res) => {
   console.log('port requested');
-  res.json({port: process.env.port || '3000'})
+  res.json({port: process.env.PORT || '3000'})
 })
 
 io.on('connection', socket => {
